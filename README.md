@@ -1,77 +1,49 @@
-# BuildWhatever
+# BuildWhatever releases
 
-AI-native game editor. A Godot 4.6.1 fork with a built-in AI assistant that can read, write, and manipulate your entire project.
+Windows alpha release distribution for BuildWhatever, an AI-assisted game-editor project. This repository provides release artifacts and usage notes; it does not include the editor's source implementation.
 
-**[Download Latest Build](../../releases/latest)**
+## Download
 
----
+Use the [latest release](https://github.com/VyasSathya/buildwhatever-releases/releases/latest) or the recorded [v0.2.0-alpha release](https://github.com/VyasSathya/buildwhatever-releases/releases/tag/v0.2.0-alpha).
 
-## Quick Start
+The release metadata checked on October 8, 2026 records:
 
-1. Download `buildwhatever.windows.editor.x86_64.exe` from [Releases](../../releases/latest)
-2. Run it — no installer needed, single portable exe
-3. Create a new project or open an existing Godot project
-4. The **AI Chat** dock is in the left panel
+| Item | Value |
+| --- | --- |
+| Release tag | `v0.2.0-alpha` |
+| Published | March 23, 2026 |
+| Windows x86_64 asset | `buildwhatever-v0.1.0-alpha-windows-x86_64.zip` |
+| Archive size | 73,431,125 bytes |
+| GitHub-provided SHA-256 | `53cf3e256c17aaca4ec6db923755f748f4f263d85f81c9d2ac1f81508effadd5` |
 
-## Setting Up AI
+The asset is a ZIP archive, not the standalone executable previously named in this README. Download and extract the archive to inspect its editor executable and packaged files. The release tag and archive filename use different version labels; they should not be treated as proof of identical package/version metadata.
 
-The AI features need an API key to work. You have two options:
+The digest above comes from GitHub's asset metadata. The archive was not downloaded, independently hashed, or executed during this documentation review.
 
-### Option A: OpenRouter (Recommended — Cloud)
+## AI configuration
 
-1. Sign up at [openrouter.ai](https://openrouter.ai)
-2. Add credits ($5 is plenty to start)
-3. Go to [API Keys](https://openrouter.ai/keys) and create a key
-4. In BuildWhatever: **Editor > AI Settings > Add Provider**
-5. Select **OpenRouter**, paste your key, hit **Test Connection**
+The project's earlier usage notes describe an AI Chat dock and provider settings under **Editor > AI Settings**. They describe cloud-provider configuration through OpenRouter and a local Ollama option. Actual availability depends on the packaged release and needs verification in that build.
 
-Default model: Kimi K2.5 (~$0.002 per message). You can change models in AI Settings.
+Provider credentials belong in the editor's local configuration, not in a Git commit. Current model availability, prices, hardware requirements, and feature support are not guaranteed by this release repository.
 
-### Option B: Ollama (Free — Local)
+## Alpha status
 
-1. Install [Ollama](https://ollama.com)
-2. Pull a model: `ollama pull qwen3` (or `llama3`, `deepseek-r1`, etc.)
-3. In BuildWhatever: **Editor > AI Settings > Add Provider**
-4. Select **Ollama** — it auto-detects at `localhost:11434`
+The release uses an alpha tag, although GitHub currently marks it as a regular release rather than a prerelease. Windows compatibility, project import/export, AI interactions, and the editor's claimed Godot-fork features have not been validated from this repository's source, because that source is not included.
 
-No API key needed. Runs on your GPU. Needs ~8GB VRAM for good models.
+## Command reference from the project notes
 
-## What Can the AI Do?
+The original editor guide records these AI-chat commands; check their availability in the extracted build:
 
-- Read, write, and edit scripts and scenes
-- Add, delete, and modify nodes in your scene tree
-- Generate images (via ComfyUI) and audio (via Kokoro TTS)
-- Search your project files and codebase
-- Semantic asset search (via Gemini embeddings)
-- Plan multi-step changes before executing
-
-### Slash Commands
-
-Type these in the chat input:
-
-| Command | Action |
-|---------|--------|
+| Command | Recorded purpose |
+| --- | --- |
 | `/clear` | Clear chat history |
-| `/plan` | Toggle plan mode (AI plans before acting) |
-| `/model` | Show current model |
-| `/export` | Save chat session |
-| `/import` | Load chat session |
-| `/help` | List commands |
+| `/plan` | Toggle planning mode |
+| `/model` | Show the selected model |
+| `/export` / `/import` | Save or load a chat session |
+| `/help` | List available commands |
 
-### Tips
+Those notes also describe `@` project-file references and an attachment control. No benchmark, API-price estimate, or tested-system claim is made here.
 
-- Type `@` to mention and reference project files in your message
-- Click `+` to attach an image for AI vision
-- Toggle `P` button for plan mode (AI confirms before making changes)
-- Code blocks have a **copy** button in the header
+## License and provenance
 
-## System Requirements
-
-- Windows 10/11 (64-bit)
-- GPU with Vulkan support
-- ~500MB disk space
-- Internet connection (for cloud AI) or ~8GB VRAM (for local Ollama)
-
-## About
-
-BuildWhatever is a fork of [Godot Engine](https://godotengine.org) with integrated AI tools for building games, apps, and interactive experiences. All Godot features and GDScript work as expected.
+The project is described in its original notes as a Godot Engine fork. Source-license attribution, third-party notices, and the packaged editor's redistribution terms still need to be documented alongside the artifact. No root license file is included in this repository.
